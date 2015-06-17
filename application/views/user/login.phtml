@@ -93,7 +93,7 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <h4>Sign In</h4>
-                <form method="post" action="/auth/login" enctype="application/x-www-form-urlencoded"><dl class="zend_form">
+                <form method="post" action="<?php echo base_url(); ?>index.php/editor" >
                     <dt id="username-label"><label class="required" for="username">Username: *</label></dt>
                     <dd id="username-element">
                     <input type="text" value="" id="username" name="username"></dd>
@@ -101,7 +101,7 @@
                     <dd id="password-element">
                     <input type="password" value="" id="password" name="password"></dd>
                     <dt id="signin-label">&nbsp;</dt><dd id="signin-element">
-                    <input type="submit" value="Sign in" id="signin" name="signin"></dd></dl>
+                    <button type="reset" class="btn btn-primary" onclick="window.location.href='<?php echo base_url() . 'index.php/editor'; ?>';">Login</button>
                 </form>        
             </div>
         </div>                                                                                              

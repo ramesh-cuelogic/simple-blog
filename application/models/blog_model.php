@@ -16,17 +16,24 @@ class Blog_model extends CI_Model {
         $query = $this->db->where( 'url_name', $strUrlName )->get( 'posts' );
         return $query->result();
     }
- 
-    function validate() {
-
-    }
     
-    function insert( $name,$body ) {
-        $data = array(
-            'entry_name' => $name,
-            'entry_body' => $body
+    function insertOrUpdate( $arrstrData ) {
+        
+        $arrmixData = array(
+            'title'     => $arrstrData['title'],
+            'url_name'  => url_title( $arrstrData['title'] ),
+            'body'      => $arrstrData['body']
         );
-        $this->db->insert('entry',$data);
+
+        if( true == is_numeric( $arrstrData['id'] )) {
+            
+            $this->db->where( 'id', $arrstrData['id'] )->update( 'posts', $arrmixData );
+        } else {
+
+            $this->db->insert( 'posts', $arrmixData );
+        }
+
+        return true;
     }
 
 }

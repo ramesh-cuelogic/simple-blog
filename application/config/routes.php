@@ -40,6 +40,9 @@
 
 $route['default_controller'] = "posts";
 $route['post/(.*)'] 		 = 'posts/viewPost/$1';
+$route['editor/add'] 		 = 'editor/addPost';
+$route['editor/edit/(.*)'] 	 = 'editor/editPost/$1';
+$route['editor/save'] 		 = 'editor/savePost';
 $route['404_override'] 		 = '';
 
 
